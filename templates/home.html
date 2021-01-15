@@ -1,0 +1,71 @@
+<h1>Welcome to Customer Churn prediction tool</h1>
+
+<h2>Please enter your customer informations below:</h2>
+
+<form action="/predict" method="post">
+<p><label for="gender-select">Select customer gender:</label></p>
+<select name="gender" id="gender-select">
+    <option value="">--Please choose an option--</option>
+    <option value="0">Male</option>
+    <option value="1">Female</option>
+</select>
+
+<p><label for="education-select">Select customer education level:</label></p>
+<select name="education" id="education-select">
+    <option value="">--Please choose an option--</option>
+    <option value="1">Uneducated</option>
+    <option value="2">High School</option>
+    <option value="3">Graduate</option>
+    <option value="4">College</option>
+    <option value="5">Post Graduate</option>
+    <option value="6">Doctorate</option>
+    <option value="0">Unknown</option>
+</select>
+
+<p><label for="maritstatus-select">Select customer marital status:</label></p>
+<select name="maritstatus" id="maritstatus-select">
+    <option value="">--Please choose an option--</option>
+    <option value="1">Single</option>
+    <option value="3">Married</option>
+    <option value="2">Divorced</option>
+    <option value="0">Unknown</option>
+</select>
+
+
+<p><label for="cardcat-select">Select customer card category:</label></p>
+<select name="cardcat" id="cardcat-select">
+    <option value="">--Please choose an option--</option>
+    <option value=0>Blue</option>
+    <option value="1">Silver</option>
+    <option value="2">Gold</option>
+    <option value="3">Platinum</option>
+</select>
+
+<p><label for="income-select">Select customer income category:</label></p>
+<select name="incomecat" id="income-select">
+    <option value="">--Please choose an option--</option>
+    <option value="1">Less than $40K</option>
+    <option value="2">$40K - $60K</option>
+    <option value="3">$60K - $80K </option>
+    <option value="4">$80K - $120K </option>
+    <option value="5">$120K + </option>
+    <option value="0">Unknown</option>
+</select>
+
+
+<p><label for="age">Enter customer age:</label></p>
+<input type="text" id="age" name="age" required
+       minlength="1" maxlength="3" size="10">
+
+<p><label for="nbcount">Enter customer number of bank accounts:</label></p>
+<input type="text" id="nbcount" name="nbcount" required
+       minlength="1" maxlength="3" size="10">
+
+<p><label for="anciennete">Enter customer bank seniority (months) :</label></p>
+<input type="text" id="anciennete" name="anciennete" required
+       minlength="1" maxlength="3" size="10">
+
+<p>
+<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+</p>
+</form>
