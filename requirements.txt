@@ -1,0 +1,7 @@
+os
+pandas
+numpy
+pickle
+sklearn
+flask
+flask-sqlalchemy
