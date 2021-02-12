@@ -10,15 +10,14 @@ import pandas as pd
 # Load ML model
 model = pickle.load(open('model_LR.pkl', 'rb'))
 
-DATA_DIR = "/Users/narjes/PycharmProjects/churnpredictionapp/venv"
 # Create application
 app = Flask(__name__)
 # DB configuation
 db = SQLAlchemy(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(DATA_DIR, 'clients.sqlite3')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////clients.db'
 app.config['SECRET_KEY'] = "random string"
 
-
+# Create Database
 class clients(db.Model):
     id = db.Column('client_id', db.Integer, primary_key=True)
     gender = db.Column(db.Integer())
@@ -69,9 +68,6 @@ def predict():
                              request.form['nbcount'], request.form['anciennete']]
 
 
-            #data = [int(i) for i in data]
-            #df = pd.DataFrame(columns=["Gender", "Education_Level", "Marital_Status", "Card_Category", "Income_Category", "Customer_Age","Dependent_count",
-                    #"Months_on_book"])
 
             data = {'Gender': request.form['gender'],
                     'Education_Level': request.form['education'],
@@ -83,7 +79,7 @@ def predict():
                     'Months_on_book':request.form['anciennete']}
 
 
-            # Create DataFrame
+            # Create DataFrame with form values
             df = pd.DataFrame(data, index=[0])
             df.apply(pd.to_numeric)
             output = model.predict(df)
@@ -100,6 +96,6 @@ def predict():
 if __name__ == '__main__':
     # create & run application
     db.create_all()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
 
 
