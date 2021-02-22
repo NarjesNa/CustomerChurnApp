@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontendflask_customer_app
+  namespace: front-end-ns
+  labels:
+    app: flask_customer_app
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask_customer_app
+  # template:
+  #     metadata:
+  #       labels:
+  #         app: myapp
+  #       name: my-front-app
+  #     spec:
+  #       containers:
+  #       - image: nginx
+  #         name: my-front-app
+  #         ports:
+  #           - containerPort: 80
+  #         resources: {}
+  #       dnsPolicy: ClusterFirst
+  #       restartPolicy: Always
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+
+---
+# simple-nginx.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
