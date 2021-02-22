@@ -1,0 +1,11 @@
+apiVersion: V1
+kind: Ingress
+metadata:
+  name: "flask_customer_app"
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: "flask_customer_app"
+          servicePort: 5000
