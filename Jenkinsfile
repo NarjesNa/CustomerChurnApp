@@ -5,7 +5,7 @@ pipeline {
         agent { docker { image 'python:3.6' } }
         steps {
         sh 'pip install --upgrade pip'  
-        sh 'pip3 install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt --user'
       }
     }
     stage('test') {
