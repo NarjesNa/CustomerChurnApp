@@ -18,5 +18,5 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5000apiVersion: apps/v1
-kind: Deployment
+
 
