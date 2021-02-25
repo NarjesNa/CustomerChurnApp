@@ -12,7 +12,7 @@ pipeline {
         checkout scm
       }
     }
-    stage('build') { Install any dependencies you need to perform testing
+    stage('build') { // Install any dependencies you need to perform testing
         agent { docker { image 'python:3.6' } }
         steps {
         sh 'pip install -r requirements.txt --user'
